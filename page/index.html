@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Story</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@800&family=Italianno&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<script>
+    function goToPage2() {
+    // Pindah ke page 2
+    document.getElementById('page1').classList.remove('active');
+    document.getElementById('page2').classList.add('active');
+    
+    // Reset dan jalankan animasi trove
+    setTimeout(function() {
+        const photoStack = document.querySelector('.photo-stack');
+        if (photoStack) {
+            // Reset terlebih dahulu
+            photoStack.classList.remove('open');
+            
+            // Force reflow untuk reset animasi
+            void photoStack.offsetWidth;
+            
+            // Jalankan animasi setelah delay
+            setTimeout(function() {
+                photoStack.classList.add('open');
+            }, 2000);
+        }
+    }, 100);
+}
+
+function goToPage1() {
+    document.getElementById('page2').classList.remove('active');
+    document.getElementById('page1').classList.add('active');
+}
+
+function goToPage3() {
+    document.getElementById('page2').classList.remove('active');
+    document.getElementById('page3').classList.add('active');
+}
+
+function goToPage2From3() {
+    document.getElementById('page3').classList.remove('active');
+    document.getElementById('page2').classList.add('active');
+    
+    // Reset dan jalankan animasi trove lagi saat kembali
+    setTimeout(function() {
+        const photoStack = document.querySelector('.photo-stack');
+        if (photoStack) {
+            photoStack.classList.remove('open');
+            void photoStack.offsetWidth;
+            setTimeout(function() {
+                photoStack.classList.add('open');
+            }, 300);
+        }
+    }, 100);
+}
+
+function goToPage4() {
+    document.getElementById('page3').classList.remove('active');
+    document.getElementById('page4').classList.add('active');
+}
+
+function goToPage3From4() {
+    document.getElementById('page4').classList.remove('active');
+    document.getElementById('page3').classList.add('active');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const photoStack = document.querySelector('.photo-stack');
+    
+    // Jangan jalankan animasi otomatis di sini
+    // Biarkan tombol Open yang mengontrol
+    if (photoStack) {
+        photoStack.classList.remove('open');
+    }
+    
+    // Event klik untuk toggle (bisa dibuka/tutup manual)
+    if (photoStack) {
+        photoStack.addEventListener('click', function(e) {
+            if (e.target.closest('.back-btn')) return;
+            if (e.target.closest('.next-btn')) return;
+            this.classList.toggle('open');
+        });
+    }
+});
+</script>
+
+<body>
+    <!-- Container untuk bunga jatuh -->
+    <div class="flower-container">
+        <div class="flower">🌸</div>
+        <div class="flower">🌺</div>
+        <div class="flower">🌸</div>
+        <div class="flower">🌷</div>
+        <div class="flower">🌸</div>
+        <div class="flower">🌺</div>
+        <div class="flower">🌸</div>
+        <div class="flower">🌷</div>
+        <div class="flower">🌸</div>
+        <div class="flower">🌺</div>
+        <div class="flower">🌸</div>
+        <div class="flower">🌷</div>
+        <div class="flower">🌸</div>
+        <div class="flower">🌺</div>
+        <div class="flower">🌸</div>
+        <div class="flower">🌷</div>
+        <div class="flower">🌸</div>
+        <div class="flower">🌺</div>
+        <div class="flower">🌸</div>
+        <div class="flower">🌷</div>
+    </div>
+
+    <!-- Background Love Pattern -->
+    <div class="love-background">
+        <img src="./images/love_Vector.png" alt="">
+        <img src="./images/love_Vector.png" alt="">
+        <img src="./images/love_Vector.png" alt="">
+        <img src="./images/love_Vector.png" alt="">
+        <img src="./images/love_Vector.png" alt="">
+        <img src="./images/love_Vector.png" alt="">
+        <img src="./images/love_Vector.png" alt="">
+        <img src="./images/love_Vector.png" alt="">
+        <img src="./images/love_Vector.png" alt="">
+        <img src="./images/love_Vector.png" alt="">
+        <img src="./images/love_Vector.png" alt="">
+        <img src="./images/love_Vector.png" alt="">
+        <img src="./images/love_Vector.png" alt="">
+        <img src="./images/love_Vector.png" alt="">
+        <img src="./images/love_Vector.png" alt="">
+        <img src="./images/love_Vector.png" alt="">
+        <img src="./images/love_Vector.png" alt="">
+        <img src="./images/love_Vector.png" alt="">
+        <img src="./images/love_Vector.png" alt="">
+        <img src="./images/love_Vector.png" alt="">
+        <img src="./images/love_Vector.png" alt="">
+        <img src="./images/love_Vector.png" alt="">
+        <img src="./images/love_Vector.png" alt="">
+        <img src="./images/love_Vector.png" alt="">
+        <img src="./images/love_Vector.png" alt="">
+        <img src="./images/love_Vector.png" alt="">
+        <img src="./images/love_Vector.png" alt="">
+        <img src="./images/love_Vector.png" alt="">
+        <img src="./images/love_Vector.png" alt="">
+        <img src="./images/love_Vector.png" alt="">
+        <img src="./images/love_Vector.png" alt="">
+        <img src="./images/love_Vector.png" alt="">
+    </div>
+
+    <!-- Page 1: Card Utama -->
+    <div class="page page-1 active" id="page1">
+        <div class="container">
+            <div class="card">
+                <h1 class="title">
+                    Our Love Story
+                </h1>
+                <p class="date">
+                    8 July - 10 Desember
+                </p>
+                <div class="heart-btn" onclick="goToPage2()">
+                    <img src="./images/love_icon.png" alt="Heart" class="heart-image">
+                    <span class="open">
+                        Open
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page 2: Trove dengan efek buka -->
+    <div class="page page-2" id="page2">
+        <button class="back-btn" onclick="goToPage1()">
+            ← Back
+        </button>
+        <div class="photo-container">
+            <div class="photo-stack">
+                <img src="./images/shadow.png" alt="Shadow" class="shadow-photo">
+                <img src="./images/trove.png" alt="Trove" class="trove-closed" id="troveClosed">
+                <img src="./images/trove_open.png" alt="Trove Open" class="trove-open" id="troveOpen">
+                <div class="floating-images">
+                    <img src="./images/photo1.png" alt="Photo 1" class="float-image img1">
+                    <img src="./images/photo1.png" alt="Photo 2" class="float-image img2">
+                    <img src="./images/photo1.png" alt="Photo 3" class="float-image img3">
+                </div>
+            </div>
+        </div>
+        <!-- TAMBAHKAN TOMBOL NEXT DI SINI -->
+        <button class="next-btn" onclick="goToPage3()">
+            Next →
+        </button>
+    </div>
+
+    <!-- Page 3: Love Letter -->
+    <div class="page page-3" id="page3">
+        <button class="back-btn" onclick="goToPage2From3()">
+            ← Back
+        </button>
+        <div class="love-letter-container">
+            <div class="envelope">
+                <div class="envelope-flap"></div>
+                <div class="letter-content">
+                    <div class="letter-header">
+                        <h2 class="letter-title">My Love</h2>
+                    </div>
+                    <div class="letter-body">
+                    <p class="letter-text">
+                        I don't know if I tell you this enough, but I'm truly grateful to have you in my life.
+                    </p>
+                    <p class="letter-text">
+                        Every day with you gives me another reason to smile, and even on the hardest days, just thinking about you makes everything feel a little lighter.
+                    </p>
+                    <p class="letter-text">
+                        Your presence is like a warm sunset on a cold evening—beautiful, comforting, and something I never want to end. You have this incredible way of making ordinary moments feel extraordinary just by being in them.
+                    </p>
+                    <div class="letter-signature">
+                        <span class="signature-name">~L</span>
+                    </div>
+                </div>
+                    <div class="letter-footer">
+                        <span class="flower-deco">🌹</span>
+                        <span class="flower-deco">🌷</span>
+                        <span class="flower-deco">🌹</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="next-btn" onclick="goToPage4()">
+            Next →
+        </button>
+    </div>
+        <!-- Page 4: Thank You Card -->
+    <div class="page page-4" id="page4">
+        <button class="back-btn" onclick="goToPage3From4()">
+            ← Back
+        </button>
+        <div class="container">
+            <div class="card card-thankyou">
+                <div class="thankyou-content">
+                    <h1 class="thankyou-title">Thank You</h1>
+                    <h2 class="thankyou-subtitle">For My World</h2>
+                </div>
+                <img src="./images/love_Vector.png" alt="Love" class="thankyou-image">
+                <p class="thankyou-date">8 Juli - 10 Desember</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
