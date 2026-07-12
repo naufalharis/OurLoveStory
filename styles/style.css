@@ -125,8 +125,6 @@ body{
     }
 }
 
-/* Tambahkan ini di bawah kode CSS yang sudah ada */
-
 /* ===== ANIMASI BUNGA JATUH ===== */
 .flower-container {
     position: fixed;
@@ -137,6 +135,9 @@ body{
     pointer-events: none;
     z-index: 1;
     overflow: hidden;
+    /* Tambahkan ini untuk optimasi */
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .flower {
@@ -146,150 +147,26 @@ body{
     animation: flowerFall linear infinite;
     opacity: 0.7;
     transform-origin: center;
+    /* Tambahkan ini untuk optimasi */
+    will-change: transform;
+    backface-visibility: hidden;
 }
 
-/* Variasi posisi & durasi untuk tiap bunga */
-.flower:nth-child(1) {
-    left: 5%;
-    animation-duration: 7s;
-    font-size: 22px;
-    animation-delay: 0s;
-}
+/* KURANGI JUMLAH BUNGA - Hanya 12 bunga */
+.flower:nth-child(1) { left: 5%; animation-duration: 9s; font-size: 22px; animation-delay: 0s; }
+.flower:nth-child(2) { left: 15%; animation-duration: 11s; font-size: 28px; animation-delay: 1.5s; }
+.flower:nth-child(3) { left: 25%; animation-duration: 8s; font-size: 18px; animation-delay: 0.8s; }
+.flower:nth-child(4) { left: 35%; animation-duration: 10s; font-size: 24px; animation-delay: 2s; }
+.flower:nth-child(5) { left: 45%; animation-duration: 9.5s; font-size: 20px; animation-delay: 1s; }
+.flower:nth-child(6) { left: 55%; animation-duration: 7.5s; font-size: 30px; animation-delay: 0.5s; }
+.flower:nth-child(7) { left: 65%; animation-duration: 10.5s; font-size: 22px; animation-delay: 2.5s; }
+.flower:nth-child(8) { left: 75%; animation-duration: 8.5s; font-size: 26px; animation-delay: 1.8s; }
+.flower:nth-child(9) { left: 85%; animation-duration: 9s; font-size: 20px; animation-delay: 0.3s; }
+.flower:nth-child(10) { left: 95%; animation-duration: 7s; font-size: 24px; animation-delay: 1.2s; }
+.flower:nth-child(11) { left: 10%; animation-duration: 12s; font-size: 32px; animation-delay: 3s; }
+.flower:nth-child(12) { left: 70%; animation-duration: 8s; font-size: 18px; animation-delay: 2s; }
 
-.flower:nth-child(2) {
-    left: 12%;
-    animation-duration: 8.5s;
-    font-size: 30px;
-    animation-delay: 1.2s;
-}
-
-.flower:nth-child(3) {
-    left: 20%;
-    animation-duration: 6.8s;
-    font-size: 18px;
-    animation-delay: 0.5s;
-}
-
-.flower:nth-child(4) {
-    left: 28%;
-    animation-duration: 9.2s;
-    font-size: 26px;
-    animation-delay: 2s;
-}
-
-.flower:nth-child(5) {
-    left: 35%;
-    animation-duration: 7.5s;
-    font-size: 20px;
-    animation-delay: 0.8s;
-}
-
-.flower:nth-child(6) {
-    left: 42%;
-    animation-duration: 8s;
-    font-size: 32px;
-    animation-delay: 1.5s;
-}
-
-.flower:nth-child(7) {
-    left: 50%;
-    animation-duration: 6.5s;
-    font-size: 24px;
-    animation-delay: 0.3s;
-}
-
-.flower:nth-child(8) {
-    left: 58%;
-    animation-duration: 9s;
-    font-size: 28px;
-    animation-delay: 2.5s;
-}
-
-.flower:nth-child(9) {
-    left: 65%;
-    animation-duration: 7.8s;
-    font-size: 20px;
-    animation-delay: 1.8s;
-}
-
-.flower:nth-child(10) {
-    left: 72%;
-    animation-duration: 8.3s;
-    font-size: 30px;
-    animation-delay: 0.6s;
-}
-
-.flower:nth-child(11) {
-    left: 80%;
-    animation-duration: 6.9s;
-    font-size: 22px;
-    animation-delay: 1.1s;
-}
-
-.flower:nth-child(12) {
-    left: 88%;
-    animation-duration: 8.8s;
-    font-size: 26px;
-    animation-delay: 2.2s;
-}
-
-.flower:nth-child(13) {
-    left: 95%;
-    animation-duration: 7.2s;
-    font-size: 18px;
-    animation-delay: 0.9s;
-}
-
-.flower:nth-child(14) {
-    left: 15%;
-    animation-duration: 9.5s;
-    font-size: 34px;
-    animation-delay: 3s;
-}
-
-.flower:nth-child(15) {
-    left: 45%;
-    animation-duration: 7.1s;
-    font-size: 16px;
-    animation-delay: 1.7s;
-}
-
-.flower:nth-child(16) {
-    left: 75%;
-    animation-duration: 8.7s;
-    font-size: 29px;
-    animation-delay: 2.8s;
-}
-
-.flower:nth-child(17) {
-    left: 3%;
-    animation-duration: 6.3s;
-    font-size: 25px;
-    animation-delay: 0.2s;
-}
-
-.flower:nth-child(18) {
-    left: 55%;
-    animation-duration: 9.1s;
-    font-size: 21px;
-    animation-delay: 1.4s;
-}
-
-.flower:nth-child(19) {
-    left: 85%;
-    animation-duration: 7.6s;
-    font-size: 27px;
-    animation-delay: 2.1s;
-}
-
-.flower:nth-child(20) {
-    left: 32%;
-    animation-duration: 8.2s;
-    font-size: 19px;
-    animation-delay: 0.7s;
-}
-
-/* Keyframe utama jatuh + rotasi */
+/* HAPUS floatSide untuk mengurangi lag - ganti dengan variasi rotasi saja */
 @keyframes flowerFall {
     0% {
         transform: translateY(-10vh) rotate(0deg) scale(0.8);
@@ -307,49 +184,55 @@ body{
     }
 }
 
-/* Efek floating tambahan (gerakan ke kiri/kanan) */
-@keyframes floatSide {
-    0%, 100% {
-        transform: translateX(0px);
-    }
-    25% {
-        transform: translateX(15px);
-    }
-    75% {
-        transform: translateX(-15px);
-    }
+/* HAPUS semua .flower:nth-child dengan floatSide */
+/* Hanya gunakan animasi flowerFall saja */
+
+/* Optimasi Card */
+.card {
+    width: 100%;
+    max-width: 320px;
+    height: 82vh;
+    border: 1px solid rgba(255,255,255,.5);
+    background: rgba(255,255,255,.08);
+    /* HAPUS backdrop-filter untuk mengurangi lag */
+    /* backdrop-filter: blur(4px); */
+    box-shadow:
+        inset 0 0 20px rgba(255,255,255,.15),
+        0 15px 25px rgba(0,0,0,.12);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    /* Tambahkan optimasi */
+    will-change: transform;
+    backface-visibility: hidden;
 }
 
-/* Gabungkan floatSide ke beberapa bunga */
-.flower:nth-child(1) {
-    animation: flowerFall 7s linear infinite, floatSide 4s ease-in-out infinite;
+/* Optimasi Page Transition */
+.page {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    animation: fadeIn 0.5s ease;
+    /* Tambahkan optimasi */
+    will-change: opacity, transform;
+    backface-visibility: hidden;
 }
-.flower:nth-child(3) {
-    animation: flowerFall 6.8s linear infinite, floatSide 3.5s ease-in-out infinite;
-}
-.flower:nth-child(5) {
-    animation: flowerFall 7.5s linear infinite, floatSide 5s ease-in-out infinite;
-}
-.flower:nth-child(7) {
-    animation: flowerFall 6.5s linear infinite, floatSide 4.2s ease-in-out infinite;
-}
-.flower:nth-child(9) {
-    animation: flowerFall 7.8s linear infinite, floatSide 3.8s ease-in-out infinite;
-}
-.flower:nth-child(11) {
-    animation: flowerFall 6.9s linear infinite, floatSide 4.5s ease-in-out infinite;
-}
-.flower:nth-child(13) {
-    animation: flowerFall 7.2s linear infinite, floatSide 3.3s ease-in-out infinite;
-}
-.flower:nth-child(15) {
-    animation: flowerFall 7.1s linear infinite, floatSide 4.7s ease-in-out infinite;
-}
-.flower:nth-child(17) {
-    animation: flowerFall 6.3s linear infinite, floatSide 3.9s ease-in-out infinite;
-}
-.flower:nth-child(19) {
-    animation: flowerFall 7.6s linear infinite, floatSide 4.1s ease-in-out infinite;
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 /* ===== PAGE TRANSITION ===== */
