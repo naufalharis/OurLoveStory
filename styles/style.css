@@ -243,7 +243,7 @@ body{
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 2;
+    z-index: 10;
     animation: fadeIn 0.5s ease;
 }
 
@@ -266,20 +266,23 @@ body{
 
 .back-btn {
     position: fixed;
-    bottom: 40px;
-    left: 40px;
-    background: rgba(255,255,255,0.2);
-    border: 1px solid rgba(255,255,255,0.3);
+    bottom: 30px;
+    left: 20px;
+    background: rgba(255,255,255,0.25);
+    border: 1px solid rgba(255,255,255,0.4);
     color: white;
-    padding: 12px 30px;
+    padding: 12px 24px;
     border-radius: 30px;
     font-family: 'Poppins', sans-serif;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 500;
     cursor: pointer;
     transition: .3s;
     backdrop-filter: blur(8px);
-    z-index: 10;
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 999;
+    /* Tambahkan ini agar selalu di atas */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
 }
 
 .back-btn:hover {
@@ -525,11 +528,19 @@ body{
 
 @media(max-width:768px){
 
-        .back-btn {
-        bottom: 30px;
-        left: 20px;
-        padding: 10px 20px;
-        font-size: 14px;
+    .back-btn {
+        bottom: 20px;
+        left: 15px;
+        padding: 10px 18px;
+        font-size: 13px;
+        z-index: 999;
+    }
+    .next-btn {
+        bottom: 20px;
+        right: 15px;
+        padding: 10px 18px;
+        font-size: 13px;
+        z-index: 999;
     }
 
     .photo-stack,
@@ -555,10 +566,19 @@ body{
 @media(max-width:480px){
 
     .back-btn {
-        bottom: 20px;
-        left: 15px;
-        padding: 8px 16px;
+        bottom: 15px;
+        left: 10px;
+        padding: 8px 14px;
         font-size: 12px;
+        z-index: 999;
+    }
+
+    .next-btn {
+        bottom: 15px;
+        right: 10px;
+        padding: 8px 14px;
+        font-size: 12px;
+        z-index: 999;
     }
 
 
@@ -1072,23 +1092,25 @@ body{
 }
 
 /* ===== TOMBOL NEXT ===== */
+/* TOMBOL NEXT */
 .next-btn {
     position: fixed;
-    bottom: 40px;
-    right: 40px;
+    bottom: 30px;
+    right: 20px;
     background: rgba(255, 255, 255, 0.25);
     border: 1px solid rgba(255, 255, 255, 0.4);
     color: white;
-    padding: 12px 30px;
+    padding: 12px 24px;
     border-radius: 30px;
     font-family: 'Poppins', sans-serif;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 500;
     cursor: pointer;
     transition: .3s;
     backdrop-filter: blur(8px);
-    z-index: 10;
-    animation: pulseButton 2s ease-in-out infinite;
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 999;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
 }
 
 .next-btn:hover {
