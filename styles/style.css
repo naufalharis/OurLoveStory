@@ -784,8 +784,7 @@ body{
     max-width: 500px;
     padding: 20px;
     margin: 0 auto;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 40%;
     
     /* Animasi muncul dari bawah */
     opacity: 0;
