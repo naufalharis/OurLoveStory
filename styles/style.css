@@ -1282,3 +1282,10 @@ font-family: 'Abhaya Libre', serif;
         padding: 30px 20px;
     }
 }
+
+/* Tambahkan di akhir file CSS */
+.back-btn, .next-btn {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
