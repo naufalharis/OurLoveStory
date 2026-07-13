@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Our Love Story</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,21 +13,14 @@
 
 <script>
     function goToPage2() {
-    // Pindah ke page 2
     document.getElementById('page1').classList.remove('active');
     document.getElementById('page2').classList.add('active');
     
-    // Reset dan jalankan animasi trove
     setTimeout(function() {
         const photoStack = document.querySelector('.photo-stack');
         if (photoStack) {
-            // Reset terlebih dahulu
             photoStack.classList.remove('open');
-            
-            // Force reflow untuk reset animasi
             void photoStack.offsetWidth;
-            
-            // Jalankan animasi setelah delay
             setTimeout(function() {
                 photoStack.classList.add('open');
             }, 2000);
@@ -49,7 +42,6 @@ function goToPage2From3() {
     document.getElementById('page3').classList.remove('active');
     document.getElementById('page2').classList.add('active');
     
-    // Reset dan jalankan animasi trove lagi saat kembali
     setTimeout(function() {
         const photoStack = document.querySelector('.photo-stack');
         if (photoStack) {
@@ -74,14 +66,9 @@ function goToPage3From4() {
 
 document.addEventListener('DOMContentLoaded', function() {
     const photoStack = document.querySelector('.photo-stack');
-    
-    // Jangan jalankan animasi otomatis di sini
-    // Biarkan tombol Open yang mengontrol
     if (photoStack) {
         photoStack.classList.remove('open');
     }
-    
-    // Event klik untuk toggle (bisa dibuka/tutup manual)
     if (photoStack) {
         photoStack.addEventListener('click', function(e) {
             if (e.target.closest('.back-btn')) return;
@@ -93,7 +80,6 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <body>
-    <!-- Container untuk bunga jatuh -->
     <div class="flower-container">
         <div class="flower">🌸</div>
         <div class="flower">🌺</div>
@@ -109,7 +95,6 @@ document.addEventListener('DOMContentLoaded', function() {
         <div class="flower">🌷</div>
     </div>
 
-    <!-- Background Love Pattern -->
     <div class="love-background">
         <img src="./images/love_Vector.png" alt="">
         <img src="./images/love_Vector.png" alt="">
@@ -145,31 +130,22 @@ document.addEventListener('DOMContentLoaded', function() {
         <img src="./images/love_Vector.png" alt="">
     </div>
 
-    <!-- Page 1: Card Utama -->
+    <!-- Page 1 -->
     <div class="page page-1 active" id="page1">
         <div class="container">
             <div class="card">
-                <h1 class="title">
-                    Our Love Story
-                </h1>
-                <p class="date">
-                    8 July - 10 Desember
-                </p>
+                <h1 class="title">Our Love Story</h1>
+                <p class="date">8 July - 10 Desember</p>
                 <div class="heart-btn" onclick="goToPage2()">
                     <img src="./images/love_Icon.png" alt="Heart" class="heart-image">
-                    <span class="open">
-                        Open
-                    </span>
+                    <span class="open">Open</span>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Page 2: Trove dengan efek buka -->
+    <!-- Page 2 -->
     <div class="page page-2" id="page2">
-        <button class="back-btn" onclick="goToPage1()">
-            ← Back
-        </button>
         <div class="photo-container">
             <div class="photo-stack">
                 <img src="./images/shadow.png" alt="Shadow" class="shadow-photo">
@@ -182,17 +158,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
         </div>
-        <!-- TAMBAHKAN TOMBOL NEXT DI SINI -->
-        <button class="next-btn" onclick="goToPage3()">
-            Next →
-        </button>
+        <div style="position:fixed; bottom:20px; left:0; right:0; display:flex; justify-content:space-between; padding:0 20px; z-index:9999;">
+            <button class="back-btn" onclick="goToPage1()" style="position:relative !important; bottom:auto !important; left:auto !important; right:auto !important; background:rgba(255,255,255,0.3); border:2px solid rgba(255,255,255,0.5); color:white; padding:10px 22px; border-radius:30px; font-family:'Poppins',sans-serif; font-size:14px; font-weight:600; cursor:pointer; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); box-shadow:0 4px 20px rgba(0,0,0,0.15);">← Back</button>
+            <button class="next-btn" onclick="goToPage3()" style="position:relative !important; bottom:auto !important; right:auto !important; background:rgba(255,255,255,0.3); border:2px solid rgba(255,255,255,0.5); color:white; padding:10px 22px; border-radius:30px; font-family:'Poppins',sans-serif; font-size:14px; font-weight:600; cursor:pointer; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); box-shadow:0 4px 20px rgba(0,0,0,0.15);">Next →</button>
+        </div>
     </div>
 
-    <!-- Page 3: Love Letter -->
+    <!-- Page 3 -->
     <div class="page page-3" id="page3">
-        <button class="back-btn" onclick="goToPage2From3()">
-            ← Back
-        </button>
         <div class="love-letter-container">
             <div class="envelope">
                 <div class="envelope-flap"></div>
@@ -201,19 +174,13 @@ document.addEventListener('DOMContentLoaded', function() {
                         <h2 class="letter-title">My Love</h2>
                     </div>
                     <div class="letter-body">
-                    <p class="letter-text">
-                        I don't know if I tell you this enough, but I'm truly grateful to have you in my life.
-                    </p>
-                    <p class="letter-text">
-                        Every day with you gives me another reason to smile, and even on the hardest days, just thinking about you makes everything feel a little lighter.
-                    </p>
-                    <p class="letter-text">
-                        Your presence is like a warm sunset on a cold evening—beautiful, comforting, and something I never want to end. You have this incredible way of making ordinary moments feel extraordinary just by being in them.
-                    </p>
-                    <div class="letter-signature">
-                        <span class="signature-name">~L</span>
+                        <p class="letter-text">I don't know if I tell you this enough, but I'm truly grateful to have you in my life.</p>
+                        <p class="letter-text">Every day with you gives me another reason to smile, and even on the hardest days, just thinking about you makes everything feel a little lighter.</p>
+                        <p class="letter-text">Your presence is like a warm sunset on a cold evening—beautiful, comforting, and something I never want to end. You have this incredible way of making ordinary moments feel extraordinary just by being in them.</p>
+                        <div class="letter-signature">
+                            <span class="signature-name">~L</span>
+                        </div>
                     </div>
-                </div>
                     <div class="letter-footer">
                         <span class="flower-deco">🌹</span>
                         <span class="flower-deco">🌷</span>
@@ -222,15 +189,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
         </div>
-        <button class="next-btn" onclick="goToPage4()">
-            Next →
-        </button>
+        <div style="position:fixed; bottom:20px; left:0; right:0; display:flex; justify-content:space-between; padding:0 20px; z-index:9999;">
+            <button class="back-btn" onclick="goToPage2From3()" style="position:relative !important; bottom:auto !important; left:auto !important; right:auto !important; background:rgba(255,255,255,0.3); border:2px solid rgba(255,255,255,0.5); color:white; padding:10px 22px; border-radius:30px; font-family:'Poppins',sans-serif; font-size:14px; font-weight:600; cursor:pointer; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); box-shadow:0 4px 20px rgba(0,0,0,0.15);">← Back</button>
+            <button class="next-btn" onclick="goToPage4()" style="position:relative !important; bottom:auto !important; right:auto !important; background:rgba(255,255,255,0.3); border:2px solid rgba(255,255,255,0.5); color:white; padding:10px 22px; border-radius:30px; font-family:'Poppins',sans-serif; font-size:14px; font-weight:600; cursor:pointer; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); box-shadow:0 4px 20px rgba(0,0,0,0.15);">Next →</button>
+        </div>
     </div>
-        <!-- Page 4: Thank You Card -->
+
+    <!-- Page 4 -->
     <div class="page page-4" id="page4">
-        <button class="back-btn" onclick="goToPage3From4()">
-            ← Back
-        </button>
         <div class="container">
             <div class="card card-thankyou">
                 <div class="thankyou-content">
@@ -240,6 +206,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 <img src="./images/love_Vector.png" alt="Love" class="thankyou-image">
                 <p class="thankyou-date">8 Juli - 10 Desember</p>
             </div>
+        </div>
+        <div style="position:fixed; bottom:20px; left:0; right:0; display:flex; justify-content:space-between; padding:0 20px; z-index:9999;">
+            <button class="back-btn" onclick="goToPage3From4()" style="position:relative !important; bottom:auto !important; left:auto !important; background:rgba(255,255,255,0.3); border:2px solid rgba(255,255,255,0.5); color:white; padding:10px 22px; border-radius:30px; font-family:'Poppins',sans-serif; font-size:14px; font-weight:600; cursor:pointer; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); box-shadow:0 4px 20px rgba(0,0,0,0.15);">← Back</button>
         </div>
     </div>
 </body>
