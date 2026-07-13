@@ -476,7 +476,7 @@ body{
     visibility:visible;
 
     transform:
-        translate(-130%,-120%)
+        translate(-115%,-120%)
         scale(1)
         rotate(-12deg);
 
@@ -494,7 +494,7 @@ body{
     visibility:visible;
 
     transform:
-        translate(35%,-135%)
+        translate(25%,-155%)
         scale(1)
         rotate(12deg);
 
